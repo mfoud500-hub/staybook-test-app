@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StayBook - Find Your Stay</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">StayBook</div>
+    <div class="nav-links">
+      <% if (userEmail) { %>
+        <a href="/home">My Account</a>
+        <a href="/logout">Logout</a>
+      <% } else { %>
+        <a href="/login">Login</a>
+        <a href="/signup">Sign Up</a>
+      <% } %>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Find your next stay</h1>
+    <p>Search hotels, compare prices, and book with confidence.</p>
+    <% if (!userEmail) { %>
+      <a class="cta-button" href="/signup">Get Started</a>
+    <% } else { %>
+      <a class="cta-button" href="/home">Go to My Account</a>
+    <% } %>
+  </header>
+
+  <section class="info">
+    <div class="card">
+      <h3>Wide Selection</h3>
+      <p>Thousands of hotels and stays to choose from.</p>
+    </div>
+    <div class="card">
+      <h3>Secure Login</h3>
+      <p>Your account is protected with validated credentials.</p>
+    </div>
+    <div class="card">
+      <h3>Easy Booking</h3>
+      <p>Book in just a few clicks once you're signed in.</p>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - StayBook</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><a href="/">StayBook</a></div>
+  </nav>
+
+  <div class="form-container">
+    <h2>Create an Account</h2>
+
+    <% if (errors && errors.length > 0) { %>
+      <div class="error-box">
+        <ul>
+          <% errors.forEach(function(err) { %>
+            <li><%= err %></li>
+          <% }); %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form method="POST" action="/signup">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" value="<%= oldEmail %>" placeholder="name@example.com">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="At least 8 characters">
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password">
+
+      <p class="hint">Password must include an uppercase letter, a lowercase letter, a number, and a special character.</p>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p class="switch-link">Already have an account? <a href="/login">Log in</a></p>
+  </div>
+</body>
+</html>
